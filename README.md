@@ -1,1 +1,1 @@
-# TProgramming_2025\n Saynahova Diana Aydreevna
+# TProgramming_2025 Saynahova Diana Aydreevna
