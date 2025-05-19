@@ -1,0 +1,48 @@
+package main
+
+import "fmt"
+
+type Cat struct {
+    name   string // имя кошки
+    age    int    // возраст кошки
+    breed  string // порода кошки
+}
+
+// Конструктор новой кошки
+func NewCat(name string, age int, breed string) *Cat {
+    return &Cat{name: name, age: age, breed: breed}
+}
+
+// Получить возраст кошки
+func (c *Cat) GetAge() int {
+    return c.age
+}
+
+// Установить новый возраст кошке
+func (c *Cat) SetAge(newAge int) {
+    c.age = newAge
+}
+
+// Вывести информацию о кошке
+func (c *Cat) Info() {
+    fmt.Printf("Имя: %s, Возраст: %d, Порода: %s\n", c.name, c.age, c.breed)
+}
+
+func main() {
+    // Создание экземпляра кошки с использованием конструктора
+    myCat := NewCat("Мурка", 3, "Сибирская")
+
+    // Получение текущего возраста
+    currentAge := myCat.GetAge()
+    fmt.Printf("Возраст моей кошки сейчас: %d\n", currentAge)
+
+    // Изменяем возраст кошки
+    myCat.SetAge(4)
+
+    // Проверяем изменение возраста
+    updatedAge := myCat.GetAge()
+    fmt.Printf("Новый возраст моей кошки: %d\n", updatedAge)
+
+    // Вывод полной информации о кошке
+    myCat.Info()
+}
