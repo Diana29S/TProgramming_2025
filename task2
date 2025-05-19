@@ -1,0 +1,30 @@
+package main
+
+import (
+    "fmt"
+    "math"
+)
+
+func main() {
+    for x := 1.5; x <= 3.5; x += 0.4 {
+        fmt.Printf("Вычисление при x = %.1f\n", x)
+        result := вычислить(4.1, 2.7, x)
+        fmt.Printf("Результат вычислений при x=%.1f: %v\n", x, result)
+    }
+}
+
+// Функция вычисляет выражение согласно заданному алгоритму
+func вычислить(a float64, b float64, x float64) float64 {
+    numerator := a * math.Pow(x, 1./3.) // Возведение в степень 1/3
+    blog3x := b * math.Log(x)/math.Log(3) // Логарифм по основанию 3
+
+    fmt.Printf("Числитель: %v\n", numerator-blog3x)
+
+    denominator := math.Pow(math.Log10(x-1), 3) // Куб десятичного логарифма от (x-1)
+
+    if denominator != 0 {
+        return (numerator - blog3x) / denominator
+    } else {
+        return math.NaN()
+    }
+}
